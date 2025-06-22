@@ -1,0 +1,12 @@
+{
+  "name": "attacker-server",
+  "version": "1.0.0",
+  "description": "Malicious server serving fake HMR updates",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "cors": "^2.8.5"
+  }
+}

@@ -1,0 +1,8 @@
+node_modules/
+dist/
+.DS_Store
+*.log
+attack-log.txt
+
+# intentionally ignore pnpm-lock.yaml for prevent leak
+pnpm-lock.yaml
