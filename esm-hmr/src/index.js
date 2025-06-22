@@ -1,8 +1,27 @@
-// Display initial message
-document.body.innerText = 'Message: Initial!';
+// Import ES module
+import { greeting, updateDisplay } from './module.js';
 
-// HMR self-acceptance: If this module is updated, re-execute it
+// Create and display content
+const container = document.createElement('div');
+container.id = 'app';
+document.body.appendChild(container);
+
+// Initial display
+updateDisplay(container);
+
+// HMR setup
 if (import.meta.webpackHot) {
-    console.log('HMR accepted');
+    console.log('HMR is enabled!');
+    
+    // Accept this module
     import.meta.webpackHot.accept();
+    
+    // Accept updates for module.js
+    import.meta.webpackHot.accept('./module.js', () => {
+        console.log('module.js updated!');
+        // Re-import the updated module
+        import('./module.js').then(newModule => {
+            newModule.updateDisplay(container);
+        });
+    });
 }

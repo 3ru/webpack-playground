@@ -1,22 +1,23 @@
-# Webpack ESM HMR Demo
+# Setup
 
-A minimal demo showcasing Webpack's ESM (ECMAScript Modules) and HMR (Hot Module Replacement) features.
+## Important: Custom Webpack Build Required
 
-## Setup
+Since ESM HMR support is still in PR #19616 and not yet released, you need to build webpack from source:
 
-1. Build Webpack locally:
 ```bash
-npm pack
+# Clone webpack repo and checkout ESM HMR branch
+git clone https://github.com/webpack/webpack.git
+cd webpack
+git fetch origin pull/19616/head:esm-hmr
+git checkout esm-hmr
+
+# Build and create package
+pnpm install
+pnpm pack
+
+# Install the generated .tgz file in this project
+cd /path/to/this/project
+pnpm add file:/path/to/webpack-5.99.9.tgz
 ```
 
-2. Install the local Webpack build:
-```bash
-pnpm add /path/to/webpack/webpack-5.99.9.tgz
-```
-
-## Development
-
-Start the development server with HMR:
-```bash
-pnpm exec webpack serve --mode development
-```
+After installing the custom webpack build, you can run the demo with `pnpm start`. 
