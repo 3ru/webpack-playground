@@ -1,0 +1,17 @@
+{
+  "name": "esm-externals-test",
+  "version": "1.0.0",
+  "description": "Test for ESM external module tree-shaking functionality (PR #19416)",
+  "type": "module",
+  "scripts": {
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --mode=development",
+    "build:stats": "webpack --mode=production --json > stats.json",
+    "test": "node test.js",
+    "clean": "rm -rf dist stats.json"
+  },
+  "devDependencies": {
+    "webpack": "file:../../webpack",
+    "webpack-cli": "^5.1.4"
+  }
+}
